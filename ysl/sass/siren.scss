@@ -1,0 +1,131 @@
+// 引入头部样式
+@import "./header.scss";
+
+// 标签部分 样式函数
+@mixin  pro($pro,$pc) {
+    >#{$pro}{
+        margin-top: 50px;
+        width: 100%;
+        >#{$pc}{
+            width: 100%;
+            text-align: center;
+            >p{
+                font-family: 'book antiqua';
+                font-size: 30px;
+                padding-bottom: 10px;
+                font-weight: bolder;
+                
+            }
+        }
+    }
+}
+
+.main{
+    width: 100%;
+    >.content{
+        width: 100%;
+        background-color: #fff;
+        >.img-one{
+            width: 100%;
+            >img{
+                vertical-align: middle;
+                max-width: 100%;
+                height: auto;
+                border: none; 
+            }
+        }
+        >ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+
+            >li{
+            width: 80%;
+                >div{
+                    text-align: left;
+                    >img{
+                        vertical-align: middle;
+                        max-width: 100%;
+                        height: auto;
+                        border: none;
+                    }
+                    &.img-three{
+                        box-sizing: border-box;
+                        padding-top: 200px;
+                        text-align: center;
+                        background: url('../images/pc03.jpg') no-repeat;
+                        background-size: 92%;
+                        >img{
+                            max-width: 60%;
+                            vertical-align: middle;
+                            border: none;
+                        }
+                    }
+                    &.img-four{
+                        box-sizing: border-box;
+                        padding-top: 200px;
+                        text-align: center;
+                       
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+// 标签产品1响应式 样式函数
+@mixin proM($pro,$pc) {
+    >#{$pro}{
+        margin-top: 10px;
+        width: 100%;
+        @media (max-width:800px){
+            >#{$pc}{
+                width: 100%;
+                text-align: center;
+                >p{
+                    font-size:16px;
+                    font-family: 'book antiqua';
+                    padding-bottom: 6px;
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+    
+}
+
+@media screen{
+    .main{
+        >.content{
+        @media (max-width:800px){
+           >ul{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            >li{
+            width: 80%;
+                >div{
+                    &.img-three{
+                        padding-top: 50px;
+                    }
+                    &.img-four{
+                        padding-top: 50px;
+                       
+                    }
+                }
+           
+            } 
+        }
+    }
+}
+}
+}
+
+
+
+//  引入底部样式
+@import "./footer.scss";

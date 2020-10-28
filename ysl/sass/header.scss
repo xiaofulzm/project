@@ -1,0 +1,879 @@
+
+// top-sub导航栏  子导航栏样式
+@mixin subNav($subItem,$subList,$bea) {
+    
+    >#{$subItem}{
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 50px;
+        width: 1200px;
+        height: 0;
+        background-color: #ffffff;
+        opacity: 0;
+        z-index: 10;
+        >#{$subList}{
+            display: flex;
+            justify-content: content;
+            width: 100%;
+            >li{
+            @if($bea){
+               
+                    //  最右侧单独a标签样式
+                    &:nth-child(4){
+                        padding-top: 30px;
+                        >a{
+                            color: #000000;
+                            font-weight: bold;
+                        }
+                    }
+                    &:nth-child(5){
+                        padding-top: 30px;
+                        >a{
+                            color: #000000;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                width: 20%;
+                height: 260px;
+                >ul{
+                    margin-top:30px;
+                    &>li:nth-child(1){
+                        color: #000000;
+                        font-weight: bold;
+                    }
+                    &>li:nth-child(1)>a{
+                        color: #000000;
+                        font-weight: bold;
+                    }
+                    >li{
+                        width: 200px;
+                        height: 30px;
+                        >a{
+                            font-size: 14px;
+                            color: #bababa;
+                            &:hover{
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// 头部部分   开始
+.header{
+    width: 100%;
+    >.nav-hot{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        background-color: #cb9864;
+        
+        >p>a{
+            font-size: 16px; 
+            color: #000000;
+        }
+    }
+    // nav-service 导航
+    >.nav-service{
+        position: relative;
+        width: 100%;
+        >.service{
+            display: flex;
+            justify-content: space-between;
+            height: 25px;
+            //  background-color: #ffffff;
+            //  color: #fff;
+            // 左侧
+             >.guild-list{
+                 display: flex;
+                 justify-content: space-between;
+                 margin-left: 250px;
+                 width: 12%;
+                 >li{
+                     font-size:14px; 
+                    //  cursor: pointer;
+                    //  color: #bababa;
+                    >a{
+                        color: #bababa;
+                    }
+                 }
+                 >li:nth-child(2){
+                     position: relative;
+                    //  客服中心页面
+                     >.service-c{
+                         visibility: hidden;
+                        display: flex;
+                        justify-content: space-between;
+                         position: absolute;
+                         top: 25px;
+                         left: 0;
+                        width: 0;
+                        height: 200px;
+                        background-color: #ffffff;
+                        box-shadow: darkgrey 10px 10px 30px 5px;
+                        opacity: 0;
+                        z-index: 10;
+                        >.c-l{
+                           
+                                box-sizing: border-box;
+                                padding-left:20px; 
+                                width: 200px;
+                                >h5{
+                                    padding:0 10px 15px;
+                                    width: 100%;
+                                    font-size: 18px;
+                                    font-weight:500; 
+                                    border-bottom: 1px solid #bababa;
+                                }
+                                >.h-list{
+                                    margin-top: 10px;
+                                    display: flex;
+                                    flex-wrap: wrap;
+                                    justify-content: space-between;
+                                    width: 100%;
+                                    >li{
+                                        // width: 100px;
+                                        padding-bottom: 5px;
+                                        >a{
+                                            color: #bababa;
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            
+                        }
+                        >.c-r{
+                            box-sizing: border-box;
+                            margin-right: 50px;
+                            width: 100px;
+                            >h4{
+                                    padding-bottom:15px; 
+                                    width: 100%;
+                                    font-size: 18px;
+                                    font-weight:500; 
+                                    width: 100%;
+                                    border-bottom: 1px solid #bababa;
+                            }
+                            >ul{
+                                margin-top: 10px;
+                                >li{
+                                    padding-bottom: 5px;                                    
+                                    >a{
+                                        color: #bababa;
+                                        font-size: 14px; 
+                                    }
+                                }
+                            }
+                        }
+                    }      
+                    
+                 }
+                 >li:nth-child(2):hover .service-c{
+                     visibility: visible;
+                     opacity: 1;
+                     width: 500px;
+                     transition: all .3s;
+                 }
+             }
+            //  右侧
+             >.service-list{
+                 display: flex;
+                 justify-content: space-between;
+                 margin-right: 300px;
+                 width: 22%;
+                //  background-color: #000000;
+                 >li{
+                     
+                   >p{
+                       cursor: pointer;
+                        font-size:14px; 
+                   }
+                }
+                >li:nth-child(1){
+                    position: relative;
+                    // 订阅杂志
+                    >.sub{
+                        visibility: hidden;
+                        position: absolute;
+                        left: -700px;
+                        top: 25px;
+                        display: flex;
+                        justify-content: space-between;
+                        width: 0;
+                        height: 300px;
+                        background-color: #ffffff;
+                        box-shadow: darkgrey 10px 10px 30px 5px;
+                         z-index: 10;
+                        opacity: 0;
+                        >.s-l{
+                            box-sizing: border-box;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                             width: 50%;
+                             height: 100%;
+                            //  background-color: blue;
+                            opacity: 0;
+                            >.p-e{
+                                margin-left: 20px;
+                            }
+                            >.em{
+                                box-sizing: border-box;
+                                margin-top: 15px;
+                                margin-left: 50px;
+                                display: flex;
+                                width: 330px;
+                                height: 40px;
+                                >input{
+                                    width: 260px;
+                                    height: 95%;
+                                    // outline: none;
+                                    border: 1px solid #000000;
+                                    text-indent: 1em;
+                                }
+                                >button{
+                                    width: 70px;
+                                    height: 100%;
+                                    background-color: #000000;
+                                    color: #ffffff;
+                                    border: none; 
+                                    outline: none;
+                                    cursor: pointer;
+                                    border: 1px solid #000000;
+                                    border-left-color: transparent;
+                                }
+                                button:hover{
+                                    color: #000000;
+                                    background-color: #ffffff;
+                                }
+
+                            }
+                            >.tr{
+                                margin-top: 10px;
+                                margin-left: 50px;
+                                display: flex;
+                                >input{
+                                    margin-top: 3px;
+                                  
+                                }
+                                >p{
+                                    margin-left: 5px;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        >.s-r{
+                            // display: flex;
+                            // flex-direction: column;
+                            // justify-content: space-between;
+                            // align-items: flex-start;
+                            padding-left: 100px;
+                            width: 50%;
+                            height: 100%;
+                            opacity: 0;
+                            >p{
+                                margin-top: 50px;
+                            }
+                            >ul{
+                                margin-left: 15px;
+                                margin-top: 40px;
+                                list-style-type: disc;
+                                >li{
+                                    padding-bottom: 5px;
+                                }
+                            }
+                            >a{
+                                >button{
+                                    margin-top: 20px;
+                                    border: none;
+                                    outline: #ffffff;
+                                    background-color: #ffffff;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                    &:hover .sub{
+                        opacity: 1;
+                        transition: opacity 9s;
+                        transition: width .3s;
+                        width: 900px;
+                        visibility: visible;
+                        &>.s-l{
+                            opacity: 1;
+                            transition: opacity 1.5s;
+                        }
+                        &>.s-r{
+                            opacity: 1;
+                            transition: opacity 1.5s;
+                        }
+                    }
+                }
+                
+                >li:nth-child(2){
+                    position: relative;
+                    //  登录界面 与注册
+                    >.login{
+                        visibility: hidden;
+                        display: flex;
+                        position: absolute;
+                        left:-650px;
+                        top: 25px;
+                        padding-left: 20px;
+                        width: 0;
+                        height: 500px;
+                        background-color: #ffffff;
+                        box-shadow: darkgrey 10px 10px 30px 5px;
+                        opacity: 0;
+                        z-index: 10;
+                        >.log-l{
+                            // margin-left: 20px;
+                            width: 50%;
+                            >h5{
+                                width: 370px;
+                                margin-top: 20px;
+                                padding-bottom: 15px;
+                                font-size: 26px;
+                                font-weight: 500;
+                                border-bottom:1px solid #bababa; 
+                            }
+                            >.inp{
+                                margin-top: 10px;
+                                >input{
+                                    width: 364px;
+                                    height: 55px;
+                                    margin-bottom: 40px;
+                                    text-indent: 2em;
+                                }
+                                >.status{
+                                    box-sizing: border-box;
+                                    width: 366px;
+                                    // background-color: #bababa;
+                                    line-height: center;
+                                    
+                                    >input{
+                                        width: 20px;
+                                        height: 100%;
+                                    }
+                                    >p{
+                                        display: inline;
+                                        padding-left: -20px;
+                                    }
+                                    >a{
+                                        display: block;
+                                        float: right;
+                                        margin-right: 0;
+                                        color: #000000;
+                                    }
+                                    
+                                }
+                                >button{
+                                    margin-top: 10px;
+                                    width: 364px;
+                                    height: 55px;
+                                    text-align: center;
+                                    line-height: 100%;
+                                    background-color: #000000;
+                                    color: #ffffff;
+                                    font-size: 20px;
+                                    outline: none;
+                                    border: 1px solid #000000;
+                                }
+                                >button:hover{
+                                    background-color: #ffffff;
+                                    color: #000000;
+                                }
+                            }
+                        }
+                        >.log-r{
+                            width: 50%;
+
+                            >h5{
+                                width: 370px;
+                                margin-top: 20px;
+                                padding-bottom: 15px;
+                                font-size: 26px;
+                                font-weight: 500;
+                                border-bottom:1px solid #bababa; 
+                            }
+                            >p{
+                                margin-top: 50px;
+                            }
+                            >ul{
+                                margin-left: 15px;
+                                margin-top: 40px;
+                                list-style-type: disc;
+                                >li{
+                                    padding-bottom: 5px;
+                                   
+                                }
+                            }
+                            >button{
+                                margin-top: 26px;
+                                width: 364px;
+                                height: 55px;
+                                text-align: center;
+                                line-height: 100%;
+                                background-color: #000000;
+                                color: #ffffff;
+                                font-size: 20px;
+                                outline: none;
+                                border: 1px solid #000000;
+                            }
+                            >button:hover{
+                                background-color: #ffffff;
+                                color: #000000;
+                            }
+                        }
+                        // 注册页面
+                        >.regsiter{
+                            visibility: hidden;
+                            position: absolute;
+                            left: 30px;
+                            top: 0;    
+                            width: 50%;
+                                                  
+                            #form{
+                                >h4{
+                                    width: 370px;
+                                    margin-top: 20px;
+                                    padding-bottom: 15px;
+                                    font-size: 26px;
+                                    font-weight: 500;
+                                    border-bottom:1px solid #bababa; 
+                                
+                                }
+                                >.inp-list{
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: space-around;
+                                    width: 364px;
+                                    height: 280px;
+                                    >li{
+                                        position: relative;
+                                        width: 100%;
+                                        height: 55px;
+                                        >p{
+                                            &::after{
+                                                display: none;
+                                                position: absolute;
+                                                top: 25px;
+                                                right: -210px;
+                                                width: 200px;
+                                                height: 60%;
+                                                background-color: pink;
+                                                border-radius: 5px;
+                                                text-align: center;
+                                                line-height: 36px;
+                                            }
+                                        }
+                                        &:nth-child(1)>p::after{
+                                            content: '请输入用户名';
+                                        }
+                                        &:nth-child(2)>p::after{
+                                            content: '请输入自己邮箱哦';
+                                        }
+                                        &:nth-child(3)>p::after{
+                                            content: '请输入您的手机号码';
+                                        }
+                                        &:nth-child(4)>p::after{
+                                            content: '密码可以复杂一点';
+                                        }
+                                        >input{
+                                            width: 100%;
+                                            height: 100%;
+                                            margin-top: 15px;
+                                            text-indent: 2em;
+                                            &:nth-child(1):focus~p::after{
+                                                display: block;
+                                            }
+                                            &:nth-child(2):focus~p::after{
+                                                display: block;
+                                            }
+                                            &:nth-child(3):focus~p::after{
+                                                display: block;
+                                                
+                                            }
+                                            &:nth-child(4):focus~p::after{
+                                                display: block;
+
+                                            }
+                                        }
+                                        
+
+                                    }
+                                }
+                                
+                                >button{
+                                    margin-top: 26px;
+                                    width: 368px;
+                                    height: 55px;
+                                    text-align: center;
+                                    line-height: 100%;
+                                    background-color: #000000;
+                                    color: #ffffff;
+                                    font-size: 20px;
+                                    outline: none;
+                                    border: 1px solid #000000;
+                                    &:hover{
+                                        background-color: #ffffff;
+                                        color: #000000;
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                    &:hover .login{
+                        visibility: visible;
+                        width: 800px;
+                        opacity: 1;
+                        transition: all .3s;
+                    }
+                }
+                >li:nth-child(3){
+                    position: relative;
+                    >.shop{
+                        visibility: hidden;
+                        position: absolute;
+                        left: -500px;
+                        top: 25px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 0;
+                        height: 300px;
+                        box-shadow: darkgrey 10px 10px 30px 5px;
+                        background-color: #ffffff;
+                        opacity: 0;
+                        z-index: 10;
+                        >.container{
+                            >p{
+                                font-size: 20px;
+                                line-height: 50px;
+                            }
+                            >a{
+                                font-size: 14px;
+                                color: #000000;
+                                border-bottom: 1px solid #cb9864;
+                                // &:hover{
+                                //     border-bottom: none;
+                                // }
+                            }
+                        }
+
+                    }
+                    &:hover .shop{
+                        opacity: 1;
+                        width: 600px;
+                        transition: all .3s;
+                        visibility: visible;
+
+                    }    
+                    
+                }
+                
+             }
+        }
+    }
+    // nav-label 导航
+    >.nav-label{
+        // position: relative;
+        // z-index: -1;
+        width: 100%;
+        height: 80px;
+        >h1{
+            cursor: pointer;
+            margin: 0 auto;
+            height: 100%;
+            width: 436px;
+            >a{
+                display: block;
+                width: 100%;
+                height: 100%;
+                >img{
+
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    // top--nav 导航
+    >.top-nav{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 50px;
+        background-color: #ffffff;
+        // 左侧
+        >.t-l{
+            width: 46%;
+            height: 100%;
+            // background-color: rgba($color: pink, $alpha: .5);
+            >.t-list{
+                display: flex;
+                justify-content: space-around;
+                position: relative;
+                width: 100%;
+                height: 100%;
+                >li{
+                    text-align: center;
+                    line-height: 50px;
+                    >a{
+                        color: #000000;
+                        font-size: 14px;
+                        &:hover{
+                            color:pink;
+                            transition:all .9s;
+                            border-bottom:2px solid red; 
+                        }
+                        
+                    }
+                    &:hover>a~.sub-nav{
+                        visibility: visible;
+                        height: 260px;
+                        opacity: 1;
+                        transition:all .3s;
+
+                    }
+                    @include subNav(".sub-nav",".s-list" ,true );
+                  
+                    &:nth-child(2){
+                        &:hover>a~.sub-nav2{
+                            visibility: visible;
+                            height: 260px;
+                            opacity: 1;
+                            transition:all .3s;
+                        }
+                        @include subNav(".sub-nav2",".s-list2" , false);
+                    }
+                    &:nth-child(3){
+                        &:hover>a~.sub-nav3{
+                            visibility: visible;
+                            height: 260px;
+                            opacity: 1;
+                            transition:all .3s;
+                        }
+                        @include subNav(".sub-nav3",".s-list3" , false);
+                    }
+                }
+
+            }
+        }
+         // 右侧
+         >.t-r{
+            align-self:center;
+                >.search{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                >input:nth-child(1){
+                    height: 40px;
+                    width: 280px;
+                    text-indent: 1em;
+                }
+                >input:nth-child(2){
+                    height: 44px;
+                    width: 44px;
+                    background-size: 100%;
+                    border-left-style: none;
+                    border: 2px solid #000000;
+                    background-color: #000000;
+                    color:#fff;
+                    font-size: 16px;
+                }
+                
+            }
+         }
+    }
+    // fiexd 类名
+    >.top-nav.fiexd{
+        position: fixed;
+        top:0;
+        z-index: 99;
+    }
+
+}
+
+// 移动端头部
+.header-m{
+    position: fixed;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 60px;
+    font-size:0; 
+    background-color: #ffffff;
+    z-index: 10;
+    // >.box{
+    //     position: relative;
+    //     height: 60px;
+    //     z-index: 1;
+    // }
+    >.h-main{
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 80%;
+        height: 60px;
+        // background-color: pink;
+
+            // 左侧
+        >.h-l{
+            display: flex;
+            align-items: center;
+            width: 100%; 
+            height:100%;
+            >a{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                display: block;
+                // padding-top: 10px;
+                width: 100%;
+                >img{
+                    height: 60px;
+                    vertical-align: middle;
+                    border-style: none;
+                }
+            }
+        }
+        // 右侧
+        >.h-r{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            width: 60%;
+            height:100%;
+           >.menu{
+                position: relative;
+                margin-right: 15px;
+                width: 40px;
+                height: 34px;
+                cursor: pointer;
+                >i{
+                    position: absolute;
+                    left: 0px;
+                    height: 4px;
+                    background: #000;
+                    width: 100%;
+                    border-radius: 1px;
+                    &:nth-child(1){
+                        top: 4px;
+                    }
+                    &:nth-child(2){
+                        top: 15px;
+                    }
+                    &:nth-child(3){
+                        top: 26px;
+                    }
+                }
+           }
+           >.nav{
+               visibility: hidden;
+               position: absolute;
+               right: 0;
+               top:5px;
+                width: 70px;
+                height:0;
+                background-color: #94070a;
+                border-radius: 5px;
+              transition:all .3s;
+                opacity: 0;
+                z-index: 20;
+                >ul{
+                    display: flex;
+                    flex-flow: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    height: 100%;
+
+                    >li{
+                        &:nth-child(1){
+                            font-size:28px;
+                            font-weight:bold;
+                            cursor: pointer;
+                        }
+                        >a{
+                            font-size: 14px;
+                            color: #cb9864;
+                            font-weight:bold;
+                            &:hover{
+                                color: pink;
+                            }
+                        }
+                    }
+                }
+           }
+           //  显示样式
+           >.show{
+              visibility: visible;
+              height: 400px;
+            opacity: 1;
+              transition:all.3s;
+           }
+           
+        }
+    }
+}
+
+//  响应式
+@media screen {
+    .header{
+        @media (max-width:1200px){
+            display: none;
+        }
+    }
+    .header-m{
+        @media (max-width:1200px){
+            visibility: visible;
+            height: 60px;
+               >.h-main{
+                >.h-l{
+                    display: flex;
+                    align-items: center;
+                    width: 100%; 
+                    height:100%;
+                       &{
+                        @media (max-width:800px){
+                            >a{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                display: block;
+                                // padding-top: 10px;
+                                width: 100%;
+                                >img{
+                                    vertical-align: middle;
+                                    max-width: 100%;
+                                    height: auto;
+                                    border: none;
+                                }
+                            }
+                        }
+                       }
+                    }
+               }
+            
+        }
+    }
+    .main{
+        @media (max-width:1200px) {
+            margin-top: 50px;
+            
+        }
+    }
+    
+}

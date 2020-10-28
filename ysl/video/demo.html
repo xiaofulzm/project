@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>视频播放器</title>
+    <link rel="shortcut icon" href="./img/ysl.jpg">
+    <style>
+        body,
+        h1 {
+            margin: 0;
+
+        }
+
+        body {
+            background-color: rgb(133, 133, 201);
+        }
+
+        video {
+            display: block;
+            width: 100%;
+        }
+
+        button {
+            padding: 0;
+            border: none;
+            outline: none;
+            background-color: transparent;
+        }
+
+        .palyer {
+            width: 1130px;
+            height: 730px;
+            margin: 50px auto 0;
+        }
+
+        .title {
+            width: 100%;
+            height: 40px;
+            font-size: 24px;
+            background-color: #e7e8ea;
+            text-align: center;
+            line-height: 48px;
+        }
+
+        .content {
+            width: 100%;
+            height: 636px;
+            background-color: #000;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 48px;
+            background-color: #e7e8ea;
+        }
+
+        /* 播放 */
+        .play,
+        .volume,
+        .openFile {
+            width: 30px;
+            height: 30px;
+            margin: 7px 9px auto;
+            background-size: cover;
+        }
+
+        .progress {
+            width: 800px;
+            height: 30px;
+            background-image: linear-gradient(to right, #ccc 0%, #ccc 0%);
+            border-radius: 10px;
+        }
+
+        .play {
+            background-size: 30px;
+            background-image: url(img/play.png);
+        }
+
+        .volume {
+            position: relative;
+
+        }
+
+        .volume>.volumeBtn {
+            width: 100%;
+            height: 100%;
+            background-image: url(img/volume-max.png);
+        }
+
+        .volume>.volumeBar {
+            display: none;
+            position: absolute;
+            top: -105px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 100px;
+            background-image: linear-gradient(to top, #8cb1b2 50%, #ccc 0%);
+            border-radius: 50px;
+        }
+
+        .openFile {
+            background-image: url(img/open.png)
+        }
+
+        .openFile>input {
+            opacity: 0;
+            width: 100%;
+            height: 100%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="palyer">
+        <h1 class="title"> 播放器1.0</h1>
+        <div class="content">
+            <video src=""> 你好</video>
+        </div>
+        <div class="controls">
+            <button class="play"></button>
+            <button class="volume">
+                <div class="volumeBtn"></div>
+                <div class="volumeBar"></div>
+            </button>
+            <div class="progress"></div>
+            <div class="openFile">
+                <input type="file">
+            </div>
+        </div>
+    </div>
+    <script>
+        /*
+            1, 点击播放  暂停   按钮logo随之变化
+            2，进度条  设置  点击 拖拽
+            3，音量 设置 点击 拖拽
+            4， 选中文件  播放文件名设置  触发播放选项
+        */
+        let playBtn = document.querySelector(".play"),
+            volumeBtn = document.querySelector(".volumeBtn"),
+            volumeBar = document.querySelector(".volumeBar"),
+            progressEle = document.querySelector(".progress"),
+            openFileBtn = document.querySelector(".openFile>input"),
+            title = document.querySelector(".title");
+
+        let videoFile = document.querySelector(".content>video");
+
+        // 创建一些列的参数   
+        let playToggle = false;  //视频处于关闭的状态
+        let loadFile = false; //是否已经加载了视频
+
+        playBtn.onclick = function () {
+            if (loadFile) {
+                if (playToggle) { //当视频处于播放状态
+                    playToggle = false;
+                    videoFile.pause();  //视频 暂停
+                    playBtn.style.backgroundImage = `url(img/play.png)`; //切换为播放logo 
+                } else {
+                    playToggle = true;
+                    videoFile.play(); //视频 播放
+                    playBtn.style.backgroundImage = `url(img/pause.png)`; //切换为暂停logo 
+                }
+            }
+        }
+
+        //监听视频播放进度
+        videoFile.addEventListener("timeupdate", function () {
+            let nowTime = this.currentTime;  //获取视频当前已经播放了的时间
+            let totalTime = this.duration; //视频总时间
+            let playProgress = (nowTime / totalTime) * 100 + "%";
+            progressEle.style.backgroundImage = `linear-gradient(to right, #8cb1b2 ${playProgress}, #ccc ${playProgress})`;
+        })
+        progressEle.addEventListener("mousedown", progressSet)
+        progressEle.addEventListener("mousemove", progressSet)
+        progressEle.addEventListener("mouseup", progressSet)
+
+        let progressToggle = false;
+        function progressSet(ev = window.event) {
+            let playProgress;
+            switch (ev.type) {
+                case "mousedown":
+                    progressToggle = true;
+                    playProgress = ev.offsetX / progressEle.clientWidth;  //点击进度条的宽度 处于 总宽度 得到播放的时间
+                    videoFile.currentTime = playProgress * videoFile.duration;    //播放的时间除于总时间 等于剩下未播放的时间
+                    progressEle.style.backgroundImage = `linear-gradient(to right, #8cb1b2 ${playProgress * 100 + "%"}, #ccc ${playProgress * 100 + "%"})`;
+
+                    break;
+                case "mousemove":
+                    if (progressToggle) {
+                        playProgress = ev.offsetX / progressEle.clientWidth;
+                        videoFile.currentTime = playProgress * videoFile.duration;
+                    }
+                    break;
+                case "mouseup":
+                    progressToggle = false;
+                    break;
+            }
+        }
+        fn();
+        // openFileBtn.onchange = function () {
+            function fn() {
+            let nowVideo = this;
+            // let url = window.URL.createObjectURL(nowVideo.files[0]); //获得添加视频的 地址
+            let url = "./mv/YSL DARE OR DARE 辛芷蕾 超清(720P)(2).mp4";
+            videoFile.setAttribute("src", url);  //更改地址
+            // title.innerText = nowVideo.files[0].name.split(".")[0]; //更改播放视频名称
+            title.innerText = url.split(".")[0]; //更改播放视频名称
+
+            progressEle.style.backgroundImage = `linear-gradient(to right, #ccc 0%, #ccc 0%)`;//初始化进度条
+            playToggle = false;  //视频处于关闭的状态
+            loadFile = true;
+            playBtn.style.backgroundImage = `url(img/play.png)`; //切换为播放logo 
+
+        }
+        let volumeToggle = false;
+        volumeBtn.onclick = function () {
+            if (!volumeToggle) {
+                volumeToggle = true;
+                volumeBar.style.display = "block";
+            } else {
+                volumeToggle = false;
+                volumeBar.style.display = "none";
+            }
+        }
+
+        volumeBar.addEventListener("mousedown", volumeSet)
+        volumeBar.addEventListener("mousemove", volumeSet)
+        volumeBar.addEventListener("mouseup", volumeSet)
+        console.log(volumeBar)
+        let volumeBarToggle = false;
+        function volumeSet(ev = window.event) {
+            let volumeValue;
+            switch (ev.type) {
+                case "mousedown":
+                    volumeBarToggle = true;
+                    volumeValue = 1 - ev.offsetY / volumeBar.clientHeight;  //点击进度条的宽度 处于 总宽度 得到音量的时间
+                    videoFile.volume = volumeValue
+                    volumeBar.style.backgroundImage = `linear-gradient(to top, #8cb1b2 ${volumeValue * 100 + "%"}, #ccc ${volumeValue * 100 + "%"})`;
+
+                    break;
+                case "mousemove":
+                    if (volumeBarToggle) {
+                        volumeValue = 1 - ev.offsetY / volumeBar.clientHeight;  //点击进度条的宽度 处于 总宽度 得到音量的时间
+                        videoFile.volume = volumeValue;
+                        volumeBar.style.backgroundImage = `linear-gradient(to top, #8cb1b2 ${volumeValue * 100 + "%"}, #ccc ${volumeValue * 100 + "%"})`;
+
+                    }
+                    break;
+                case "mouseup":
+                    volumeBarToggle = false;
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

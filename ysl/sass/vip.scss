@@ -1,0 +1,124 @@
+// 导入头部样式
+@import "./header.scss";
+
+
+.main{
+    >.content{
+        >.pro{
+            margin-top: 50px;
+            width: 100%;
+            >.p-c{
+                width: 100%;
+                text-align: center;
+                >p{
+                    font-family: 'book antiqua';
+                    font-size: 30px;
+                    padding-bottom: 10px;
+                    font-weight: bolder;
+                    &:nth-child(2){
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+        >.m-wrap{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            padding-bottom: 30px;
+            width: 100%;
+            >ul{
+                display: flex;
+                // flex-direction: row;
+                flex-direction: column;
+                width: 80%;
+                >li{
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    margin-top: 30px;
+                    padding-top: 30px;
+                    border-top: 2px solid gray;
+                    >.w-l{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 50%;
+                        >h6{
+                            font-size: 36px;
+                        }
+                        >ul{
+                            margin-top: 30px;
+                            >li{
+                                padding-bottom: 10px;
+                                >p{
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+    
+                    }
+                    >.w-r{
+                        width: 50%;
+                        >img{
+                            vertical-align: middle;
+                            max-width: 100%;
+                            height: auto;
+                            border: none;
+                        }
+                    }
+                    &:nth-child(2){
+                        display: flex;
+                        flex-direction: row-reverse;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@media screen{
+    .main{
+        @media (max-width:1200px){
+          >.content{
+              margin-top: 60px;
+            >.pro{
+                margin-top: 10px;
+                width: 100%;
+                @media (max-width:800px){
+                    >.p-c{
+                        width: 100%;
+                        text-align: center;
+                        >p{
+                            font-size:20px;
+                            font-family: 'book antiqua';
+                            padding-bottom: 6px;
+                            font-weight: bolder;
+                            &:nth-child(2){
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+            }
+            >.m-wrap{
+                margin-top: 0;
+                >ul{
+                    >li{
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+          }
+        }
+    }
+}
+
+
+
+// 导入底部样式
+@import "./footer.scss";

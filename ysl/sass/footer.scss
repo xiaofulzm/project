@@ -1,0 +1,325 @@
+
+
+//底部样式
+
+.bottom{
+    width: 100%;
+    >.footer{
+        width: 100%;
+        >.friend-link{
+            width:100%;
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            >ul{
+                display: flex;
+                justify-content: space-between;
+                width: 80%;
+                >li{
+                    border-left: 1px solid #fff;
+                    border-right: 1px solid #fff;
+                    
+                    text-align: center;
+                    >img{
+                        max-width: 100%;
+                        height: auto;
+                        vertical-align: middle;
+                        border-style: none;
+                    }
+                }
+            }
+        }
+        >.f-c{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            >.f-l{
+                display: flex;
+                justify-content: center;
+                width: 60%;
+                >ul{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 80%;
+                    >li{
+                        display: flex;
+                        flex-direction: column;
+                        align-content: flex-start;
+                        margin-top: 20px;
+                        >h6{
+                            font-size: 20px;
+                        }
+                        >ul{
+                            margin-top: 10px;
+                            >li{
+                                padding-bottom: 10px;
+                                >a{
+                                    color:darkgray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            >.f-r{
+                width: 40%;
+                padding-top: 20px;
+                >p{
+                    font-size: 20px;
+                    font-weight: bold;
+                }
+                >.f-s{
+                    >input{
+                        text-indent: 1em;
+                        height: 26px;
+                        &:nth-child(2){
+                            width: 30px;
+                            height: 30px;
+                            border: 1px solid #000;
+                            background-color: #000;
+                            color: #fff;
+                            text-indent: 0;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                >.f-atten{
+                    >p{
+                        font-size: 16px;
+                        color:darkgray;
+                    }
+                    >i{
+                        cursor: pointer;
+                    }
+                }
+                >.f-me{
+                    >p{
+                        font-size: 16px;
+                        color:darkgray;
+                        &:nth-child(2){
+                            font-size: 14px;
+
+                        }
+                    }
+                }
+           
+            }
+        }
+        >.f-label{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            >.img{
+                display: flex;
+                justify-content: center;
+                width: 60%;
+                >img{
+                    max-width: 100%;
+                    height: auto;
+                    vertical-align: middle;
+                    border-style: none;
+                }
+            }
+        }
+        >.icp{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            width:100%;
+            >ul{
+                
+                display: flex;
+                justify-content: space-around;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                width: 80%;
+                >li{
+                    &:nth-child(2){
+                        display: flex;
+                        align-items: center;
+
+                    }
+                    &:nth-child(2)>i{
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        background: url('../images/g2.png') no-repeat;
+                    }
+                    &:nth-child(3){
+                        display: flex;
+                        align-items: center;
+
+                    }
+                    &:nth-child(3)>i{
+                        display: block;
+                        width: 30px;
+                        height: 30px;
+                        background: url('../images/g.png') no-repeat;
+                    }
+                    >p{
+                        font-size: 12px;
+
+                    }
+                }
+                &:nth-child(2){
+                    margin-bottom: 20px;
+                    width: 40%;
+                    >li{
+                        >p{
+                            font-size: 12px;
+                        }
+                    }
+                  
+                }
+            }
+
+        }
+    }
+}
+
+
+@media screen{
+    .bottom{
+        @media (max-width:800px){
+            >.footer{
+                >.f-c{
+                    display: flex;
+                    justify-content: center;
+                    width: 100%;
+                    >.f-l{
+                        display: flex;
+                        justify-content: center;
+                        width: 60%;
+                        >ul{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-around;
+                            width: 80%;
+                            >li{
+                                display: flex;
+                                flex-direction: column;
+                                align-content: flex-start;
+                                margin-top: 20px;
+                                >h6{
+                                    font-size: 14px;
+                                }
+                                >ul{
+                                    margin-top: 10px;
+                                    >li{
+                                        padding-bottom: 10px;
+                                        >a{
+                                            color:darkgray;
+                                            font-size: 12px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    >.f-r{
+                        width: 40%;
+                        padding-top: 20px;
+                        >p{
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                        >.f-s{
+                            >input{
+                                text-indent: 1em;
+                                height: 26px;
+                                width: 110px;
+                                &:nth-child(2){
+                                    width: 30px;
+                                    height: 30px;
+                                    border: 1px solid #000;
+                                    background-color: #000;
+                                    color: #fff;
+                                    text-indent: 0;
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                        >.f-atten{
+                            >p{
+                                font-size: 14px;
+                                color:darkgray;
+                            }
+                            >i{
+                                cursor: pointer;
+                            }
+                        }
+                        >.f-me{
+                            >p{
+                                font-size: 14px;
+                                color:darkgray;
+                                &:nth-child(2){
+                                    font-size: 14px;
+        
+                                }
+                            }
+                        }
+                   
+                    }
+                }
+                >.icp{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 10px;
+                    background-color: #f2f2f2;
+                    width:100%;
+                    >ul{
+                        
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                        width: 80%;
+                        >li{
+                            display: flex;
+                                justify-content: center;
+                                align-items: center;
+                
+                            &:nth-child(2)>i{
+                                display: block;
+                                width: 30px;
+                                height: 30px;
+                                background: url('../images/g2.png') no-repeat;
+                            }
+                            &:nth-child(3){
+                                display: flex;
+                                align-items: center;
+        
+                            }
+                            &:nth-child(3)>i{
+                                display: block;
+                                width: 30px;
+                                height: 30px;
+                                background: url('../images/g.png') no-repeat;
+                            }
+                            >p{
+                                font-size: 12px;
+        
+                            }
+                        }
+                        &:nth-child(2){
+                            margin-bottom: 10px;
+                            width: 40%;
+                            >li{
+                                >p{
+                                    font-size: 12px;
+                                }
+                            }
+                          
+                        }
+                    }
+        
+                }
+            }
+        }
+    }
+}

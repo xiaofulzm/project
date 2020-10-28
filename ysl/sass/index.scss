@@ -1,0 +1,770 @@
+//  导入头部样式
+@import "./header.scss";
+
+// 主体商品明星代言部分 样式函数
+// boolean = boolean
+@mixin mainContent ($mc,$mi,$mt,$tc,$tcm,$boolean) {
+    >#{$mc}{
+        display: flex;
+        justify-content: center;
+        @if ($boolean) {
+            flex-direction: row-reverse;            
+        }
+        width: 100%;
+        background-color: #fff;
+        >#{$mi}{
+            width: 50%;
+            >img{
+                vertical-align: middle;
+                max-width: 100%;
+                height: auto;
+                border: none;
+            }
+        }
+        >#{$mt}{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            >#{$tc}{
+         
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+            height:300px;
+            >ul{
+                >li{
+                    padding-top: 10px;
+                    >p{
+                        font-family: 'book antiqua';
+                        font-weight: bolder;
+                        text-align:left;
+                    }
+                    &:nth-child(1)>p{
+                        font-size: 20px;
+                    }
+                    &:nth-child(2)>p{
+                        font-size: 16px;
+                    }
+                    &:nth-child(3)>p{
+                        font-size: 14px;
+                        font-weight: normal;
+                    }
+                    &:nth-child(4)>p{
+                        font-size: 14px;
+                        font-weight: normal;
+
+                    }
+                    &:nth-child(5)>p{
+                        width: 148px;
+                        height: 28px;
+                        font-size: 14px;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 30px;
+                        background-color: #000;
+                        border: 1px solid #000;
+                        cursor: pointer;
+                        &:hover{
+                            background-color: #fff;
+                            border: 1px solid #000;
+                            color: #000;
+                        }
+                        &:hover>a{
+                            color: #000;
+                        }
+                        >a{
+                            color: #fff;
+                            
+                        }
+                    }
+                }
+            }
+
+            }
+            // 响应式部分
+            >#{$tcm}{
+                display: none;
+            }
+        }
+    }
+}
+
+// 标签部分2 样式函数
+@mixin  proTwo($pro2,$pc2) {
+    >#{$pro2}{
+        width: 100%;
+        >#{$pc2}{
+            width: 100%;
+            text-align: center;
+            >p{
+                font-family: 'book antiqua';
+                font-size: 30px;
+                padding-bottom: 10px;
+                font-weight: bolder;
+                &:nth-child(2){
+                    font-weight: normal;
+                }
+            }
+        }
+    }
+}
+
+// 产品主要内容部分  样式函数
+@mixin proImg($proi,$ic,$icm) {
+    >#{$proi}{
+        width:100%;
+        >#{$ic}{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 30px;
+            width:100%;
+            >ul{
+                display: flex;
+                justify-content: space-between;
+                width: 70%;
+                background-color: #fff;
+                >li{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    >img{
+                        flex:1;
+                        vertical-align: middle;
+                        max-width: 100%;
+                        height: auto;
+                        border: none;
+                    }
+                    >p{
+                        position: absolute;
+                    }
+                    >span{
+                        display: block;
+                        width: 100px;
+                        height: 26px;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 26px;
+                        background-color: #000;
+                        border: 1px solid #000;
+                        >a{
+                            font-size: 16px;
+                            color: #fff;
+                        }
+                        &:hover{
+                            background-color: #fff;
+                        } 
+                        &:hover>a{
+                            background-color: #fff;
+                            color: #000;
+                        } 
+                    }
+                  
+                }
+
+            }
+        }
+        >#{$icm}{
+            display: none;
+        }
+    }
+}
+
+
+
+
+
+
+//  内容主体
+.main{
+    margin-top: 0;
+    width: 100%;
+    // height: 1000px;
+    background-color: #f2f2f2;
+    //  中间视频部分
+    >.v{
+        position: relative;
+        width:100%;
+        >img{
+            vertical-align: middle;
+            max-width: 100%;
+            height: auto;
+            border: none;
+        }
+        >button{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            transform: translateX(-50px) translateY(-50px);
+            border-radius:100%; 
+            background: transparent;
+            border: transparent;
+            outline: none;
+            >a{
+                display: block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    // 产品部分
+    >.content{
+        width: 100%;
+        // 标签部分
+        >.pro{
+            display: flex;
+            justify-content: center;
+            width:100%;
+            background-color: #fff;
+            >.p-c{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 60%;
+                height:300px;
+                >ul{
+                    >li{
+                        padding-top: 10px;
+                        >p{
+                            font-family: 'book antiqua';
+                            font-weight: bolder;
+                            text-align: center;
+                        }
+                        &:nth-child(1)>p{
+                            font-size: 36px;
+                        }
+                        &:nth-child(2)>p{
+                            font-size: 36px;
+                        }
+                        &:nth-child(3)>p{
+                            font-size: 20px;
+                            font-weight: normal;
+
+                        }
+                        &:nth-child(4)>p{
+                            font-size: 20px;
+                            font-weight: normal;
+                        }
+                        &:nth-child(5)>p{
+                            margin: auto;
+                            width: 148px;
+                            height: 28px;
+                            font-size: 14px;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 30px;
+                            background-color: #000;
+                            border: 1px solid #000;
+                            cursor: pointer;
+                            &:hover{
+                                background-color: #fff;
+                                border: 1px solid #000;
+                                color: #000;
+                            }
+                            &:hover>a{
+                                color: #000;
+                            }
+                            >a{
+                                color: #fff;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            >.p-c2{
+                display: none;
+            }
+        }
+        // 主体商品明星代言部分
+        @include mainContent(".m-c",".m-i",".m-t",".t-c",".t-cm",false);
+
+        // 标签部分2
+        @include proTwo(".pro2",".p-c2");
+
+
+        // 产品主要内容部分
+        >.pro-i{
+            width:100%;
+            >.i-c{
+                display: flex;
+                justify-content: center;
+                padding-bottom: 30px;
+                width:100%;
+                >ul{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 70%;
+                    background-color: #fff;
+                    >li{
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        text-align: center;
+                        >img{
+                            vertical-align: middle;
+                            max-width: 100%;
+                            height: auto;
+                            border: none;
+                        }
+                        >p{
+                            position: absolute;
+                        }
+                        >span{
+                            display: block;
+                            width: 100px;
+                            height: 26px;
+                            color: #fff;
+                            text-align: center;
+                            line-height: 26px;
+                            background-color: #000;
+                            border: 1px solid #000;
+                            >a{
+                                font-size: 16px;
+                                color: #fff;
+                            }
+                            &:hover{
+                                background-color: #fff;
+                            } 
+                            &:hover>a{
+                                background-color: #fff;
+                                color: #000;
+                            } 
+                        }
+                        &:nth-child(1){
+                            >p{
+                                left: 54px;
+                                font-size: 22px;
+                                font-weight: bold;
+                                background-color:#fff;
+                                &:nth-child(2){
+                                    bottom: 72px;
+                                }
+                                &:nth-child(3){
+                                    left: 92px;
+                                    bottom: 32px;
+                                }
+
+                            }
+                        }
+                        &:nth-child(2){
+                            padding-top: 36px;
+                            >p{
+                                left: 60px;
+                                font-size: 22px;
+                                font-weight: bold;
+                                background-color:#fff;
+                                &:nth-child(2){
+                                    bottom: 72px;
+                                }
+                                &:nth-child(3){
+                                    left: 86px;
+                                    bottom: 34px;
+                                }
+
+                            }
+                        }
+                        &:nth-child(3){
+                            padding-top: 54px;
+                            >p{
+                                left: 64px;
+                                font-size: 22px;
+                                font-weight: bold;
+                                background-color:#fff;
+                                &:nth-child(2){
+                                    bottom: 74px;
+                                }
+                                &:nth-child(3){
+                                    left: 80px;
+                                    bottom: 34px;
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+            }
+            >.i-cm{
+                display: none;
+            }
+        }
+        // 主体商品明星代言部分2
+        @include mainContent(".m-c2",".m-i2",".m-t2",".t-c2",".t-cm2",true);
+        // 标签部分3
+        @include proTwo(".pro3",".p-c3");
+        // 产品主要内容部分2
+        @include proImg(".pro-i2",".i-c2",".i-cm2");
+        // 主体商品明星代言部分3
+        @include mainContent(".m-c3",".m-i3",".m-t3",".t-c3",".t-cm3",false);
+        // 标签部分4
+        @include proTwo(".pro4",".p-c4");
+        // 产品主要内容部分3
+        @include proImg(".pro-i3",".i-c3",".i-cm3");
+        // 主体商品明星代言部分4
+        @include mainContent(".m-c4",".m-i4",".m-t4",".t-c4",".t-cm4",true);
+         
+        // 标签部分5
+         @include proTwo(".pro5",".p-c5");
+         // 产品主要内容部分4
+         @include proImg(".pro-i4",".i-c4",".i-cm4");
+        >.f-i{
+            width: 100%;
+            >img{
+                max-width: 100%;
+                height: auto;
+                vertical-align: middle;
+                border-style: none;
+            }
+        }
+    }
+}
+
+
+
+
+//主体商品明星代言部分 响应式样式函数
+@mixin mContnet($mc,$mt,$tc,$tcm) {
+    >#{$mc}{
+        width: 100%;
+        >#{$mt}{
+            >#{$tc}{
+                display: none;
+            }
+            >#{$tcm}{
+                display: block;
+                // margin-top: auto 0;
+                // text-align: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                >p{
+                font-size: 20px;
+                &:nth-child(2){
+                    margin: 10px auto;
+                    width: 128px;
+                    height: 28px;
+                    text-align: center;
+                    line-height: 28px;
+                    border: 1px solid #000;
+                    font-size: 16px;
+                    background-color: #000;
+                    &:hover{
+                        background-color: #fff;
+                        >a{
+                            color: #000;
+                        }
+                    }
+                    >a{
+                        color: #fff;
+                    }
+                }
+                
+            }
+            &{
+                @media (max-width:800px){
+                    >p{
+                        font-size: 20px;
+                        &:nth-child(2){
+                            margin: 0 auto;
+                            width: 100px;
+                            height: 22px;
+                            text-align: center;
+                            line-height: 22px;
+                            border: 1px solid #000;
+                            font-size: 14px;
+                            background-color: #000;
+                            &:hover{
+                                background-color: #fff;
+                                >a{
+                                    color: #000;
+                                }
+                            }
+                            >a{
+                                color: #fff;
+                            }
+                        }   
+                    }
+                }
+            
+            }
+            }
+        }
+    }
+    
+}
+
+
+// 标签产品2响应式 样式函数
+@mixin perTwom($pro2,$pc2) {
+    >#{$pro2}{
+        width: 100%;
+        @media (max-width:800px){
+            >#{$pc2}{
+                width: 100%;
+                text-align: center;
+                >p{
+                    font-size:16px;
+                    font-family: 'book antiqua';
+                    padding-bottom: 6px;
+                    font-weight: bolder;
+                    &:nth-child(2){
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+//  产品部分
+@mixin proImgm($proi2,$ic2,$icm2) {
+    >#{$proi2}{
+        >#{$ic2}{
+            display: none;
+        }
+        >#{$icm2}{ 
+            display: block;
+            display: flex;
+            justify-content: center;
+            padding-bottom: 20px;
+            width:100%;
+                >ul{
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-end;
+                width: 100%;
+                background-color: #fff;
+                >li{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    padding-right: 5px;
+                    >img{
+                        vertical-align: middle;
+                        max-width: 100%;
+                        height: auto;
+                        border: none;
+                    }
+                    >p{
+                        font-size: 14px;
+                    }
+                    >span{
+                        display: block;
+                        width: 80px;
+                        height: 20px;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 20px;
+                        background-color: #000;
+                        border: 1px solid #000;
+                        >a{
+                            font-size: 14px;
+                            color: #fff;
+                        }
+                        &:hover{
+                            background-color: #fff;
+                        } 
+                        &:hover>a{
+                            background-color: #fff;
+                            color: #000;
+                        } 
+                    }
+                }
+                &{
+                   @media (max-width:600px){
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: flex-end;
+                       width: 100%;
+                       >li{
+                           padding-right: 18px;
+                       }
+                   }
+                }
+            }
+        }
+    }
+}
+
+//响应式
+@media screen{
+    .main{
+        @media (max-width:1200px){
+            >.content{
+                // 标签部分响应式
+                width: 100%;
+                >.pro{
+                    width: 100%;
+                    background-color: #eeebea;
+                    >.p-c{
+                        display: none;
+                    }
+                    >.p-c2{
+                        display: block;
+                        margin-top: 8px;
+                        text-align: center;
+                        >p{
+                            font-size: 26px;
+                            &:nth-child(2){
+                                margin: 10px auto;
+                                width: 128px;
+                                height: 28px;
+                                text-align: center;
+                                line-height: 26px;
+                                border: 1px solid #000;
+                                font-size: 16px;
+                                background-color: #000;
+                                &:hover{
+                                    background-color: #fff;
+                                    >a{
+                                        color: #000;
+                                    }
+                                }
+                                >a{
+                                    color: #fff;
+                                }
+                            }
+                            
+                        }
+                        &{
+                            @media (max-width:800px){
+                                >p{
+                                    font-size: 20px;
+                                    &:nth-child(2){
+                                        margin: 10px auto;
+                                        width: 100px;
+                                        height: 22px;
+                                        text-align: center;
+                                        line-height: 22px;
+                                        border: 1px solid #000;
+                                        font-size: 14px;
+                                        background-color: #000;
+                                        &:hover{
+                                            background-color: #fff;
+                                            >a{
+                                                color: #000;
+                                            }
+                                        }
+                                        >a{
+                                            color: #fff;
+                                        }
+                                    }   
+                                }
+                            }
+                        
+                        }
+                    }
+                }
+
+                //主体商品明星代言部分 响应式
+                @include mContnet(".m-c",".m-t",".t-c",".t-cm");  
+                // 标签产品2响应式
+                @include perTwom(".pro2",".p-c2");
+               
+                // 产品部分
+                >.pro-i{
+                    >.i-c{
+                        display: none;
+                    }
+                    >.i-cm{ 
+                        display: block;
+                        display: flex;
+                        justify-content: center;
+                        padding-bottom: 20px;
+                        width:100%;
+                            >ul{
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: flex-end;
+                            width: 70%;
+                            background-color: #fff;
+                            >li{
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                text-align: center;
+                                padding-right: 5px;
+                                >img{
+                                    vertical-align: middle;
+                                    max-width: 100%;
+                                    height: auto;
+                                    border: none;
+                                }
+                                >p{
+                                    font-size: 14px;
+                                }
+                                >span{
+                                    display: block;
+                                    width: 80px;
+                                    height: 20px;
+                                    color: #fff;
+                                    text-align: center;
+                                    line-height: 20px;
+                                    background-color: #000;
+                                    border: 1px solid #000;
+                                    >a{
+                                        font-size: 14px;
+                                        color: #fff;
+                                    }
+                                    &:hover{
+                                        background-color: #fff;
+                                    } 
+                                    &:hover>a{
+                                        background-color: #fff;
+                                        color: #000;
+                                    } 
+                                }
+                            }
+                            &{
+                               @media (max-width:600px){
+                                    display: flex;
+                                    justify-content: space-around;
+                                    align-items: flex-end;
+                                   width: 100%;
+                                   >li{
+                                       padding-right: 18px;
+                                   }
+                               }
+                            }
+                        }
+                    }
+                }
+                //主体商品明星代言部分2 响应式
+                @include mContnet(".m-c2",".m-t2",".t-c2",".t-cm2");
+                // 标签产品3响应式
+                @include perTwom(".pro3",".p-c3");
+                // 产品部分2
+                @include proImgm(".pro-i2",".i-c2",".i-cm2");
+                 //主体商品明星代言部分3 响应式
+                 @include mContnet(".m-c3",".m-t3",".t-c3",".t-cm3");
+                 // 标签产品4响应式
+                @include perTwom(".pro4",".p-c4");
+                // 产品部分3
+                @include proImgm(".pro-i3",".i-c3",".i-cm3");
+                 //主体商品明星代言部分4 响应式
+                 @include mContnet(".m-c4",".m-t4",".t-c4",".t-cm4");
+                 // 标签产品5响应式
+                @include perTwom(".pro5",".p-c5");
+                // 产品部分4
+                @include proImgm(".pro-i4",".i-c4",".i-cm4");
+            }
+        }
+    }
+}
+
+ //  导入底部部样式
+@import "./footer.scss";              
